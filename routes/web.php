@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usuariocontrol;
+use App\Http\Controllers\MenuControlador;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/menu', [MenuControlador::class, 'opcPrincipal']);
+Route::get('/contacto', [MenuControlador::class, 'opcContacto']);
+Route::get('/nosotros', [MenuControlador::class, 'opcNosotros']);

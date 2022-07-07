@@ -53,11 +53,30 @@
                                 </li>
                             @endif
                         @else
+                        <li>
+                                <a class="dropdown-item" href="/menu">
+                                        {{ __('Menu de comida') }}
+                                    </a>                          
+
+                                    
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="/nosotros">
+                                        {{ __('Nosotros') }}
+                                    </a>   
+                                    
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/contacto">
+                                        {{ __('Contacto') }}
+                                    </a> 
+
+                                </li>
                             <li class="nav-item">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->nombre }}
                                 </a>
-
                                 <div class="nav-item" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -70,6 +89,8 @@
                                     </form>
                                 </div>
                             </li>
+                            
+
                         @endguest
                     </ul>
                 </div>

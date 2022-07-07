@@ -101,17 +101,36 @@
                             </div>
                         </div>
 
+                        <div>
+                            
+                            
+                        </div>
+                        
                         <div class="row mb-0">
+
                             <div class="col-md-6 offset-md-4">
+
+                                {!! NoCaptcha::renderJs('es', false, 'onloadCallback') !!}
+                                
+                                {!! NoCaptcha::display() !!}
+
+
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Enviar') }}
                                 </button>
                             </div>
                         </div>
                     </form>
+                   
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+<script >
+  var onloadCallback = function() {
+    alert("grecaptcha is ready!");
+  };
+</script>
