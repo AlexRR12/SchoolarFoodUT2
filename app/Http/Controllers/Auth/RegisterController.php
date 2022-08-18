@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -56,6 +57,8 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
              'edad' => ['required', 'integer'],
             'matricula' => ['required', 'string', 'max:9', 'unique:usuarios'],
+            'terminos' => ['accepted'],
+            'g-recaptcha-response' => 'required|captcha'
         ]);
     }
 
@@ -75,6 +78,7 @@ class RegisterController extends Controller
             'edad' =>  $data['edad'],
             'matricula' => $data['matricula'],
             'tipousuario' => "2",
+            
 
         ]);
     }

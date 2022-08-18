@@ -101,17 +101,57 @@
                             </div>
                         </div>
 
+                        <div>
+                            
+                            
+                        </div>
+
+
                         <div class="row mb-0">
+
+                            <div class="col-md-8 offset-md-4">
+
+                                <input type="checkbox" name="terminos" class="@error('terminos') is-invalid @enderror" >
+
+                                <label>He leído el <a href="{!!asset('files/Aviso de Privacidad integral.pdf')!!}"
+                                    target="_blank">Aviso de Privacidad </label> 
+                                    <label> </a>y acepto los términos y condiciones</label> 
+                                @error('terminos')
+
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row mb-0">
+
                             <div class="col-md-6 offset-md-4">
+
+                                {!! NoCaptcha::renderJs('es', false, 'onloadCallback') !!}
+                                
+                                {!! NoCaptcha::display() !!}
+
+
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Enviar') }}
                                 </button>
                             </div>
                         </div>
                     </form>
+                   
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+<script >
+  var onloadCallback = function() {
+    alert("grecaptcha is ready!");
+  };
+</script>

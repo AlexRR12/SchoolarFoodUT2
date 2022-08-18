@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usuariocontrol;
+use App\Http\Controllers\MenuControlador;
+use App\Http\Controllers\PerfilControlador;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +46,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/index', [App\Http\Controllers\MenuControlador::class, 'opcindex']);
+Route::get('/menu', [App\Http\Controllers\MenuControlador::class, 'opcPrincipal']);
+Route::get('/contacto', [App\Http\Controllers\MenuControlador::class, 'opcContacto']);
+Route::get('/nosotros', [App\Http\Controllers\MenuControlador::class, 'opcNosotros']);
+Route::get('/perfil', [App\Http\Controllers\MenuControlador::class, 'perfil']);
+Route::get('/changepass', [App\Http\Controllers\MenuControlador::class, 'changepass']);
+
+Route::put('/editar/{id}', [App\Http\Controllers\PerfilControlador::class, 'update']);
+
+Route::get('/pagar', function () {
+    return view('pagar');
+});
